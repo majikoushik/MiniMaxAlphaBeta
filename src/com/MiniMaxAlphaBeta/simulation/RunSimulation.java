@@ -1,6 +1,6 @@
 package com.MiniMaxAlphaBeta.simulation;
 
-import com.MiniMaxAlphaBeta.agent.StudentRobot;
+import com.MiniMaxAlphaBeta.agent.AiPlayerRobot;
 
 import com.MiniMaxAlphaBeta.agent.Robot;
 import com.MiniMaxAlphaBeta.agent.examples.RandomRobot;
@@ -86,7 +86,7 @@ public class RunSimulation {
 	public static void main(String[] args) {
 		RunSimulation sim = new RunSimulation();
 		Environment env = sim.getEnvironment();
-		sim.addPlayer(new StudentRobot(env), Status.YELLOW);
+		sim.addPlayer(new AiPlayerRobot(env), Status.YELLOW);
 		sim.addPlayer(new RandomRobot(env), Status.RED);
 		sim.run();
     }

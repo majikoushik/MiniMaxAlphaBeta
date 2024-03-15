@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.MiniMaxAlphaBeta.agent.StudentRobot;
+import com.MiniMaxAlphaBeta.agent.AiPlayerRobot;
 
 import com.MiniMaxAlphaBeta.agent.examples.GreedyRobot;
 import com.MiniMaxAlphaBeta.agent.examples.HorizontalRobot;
@@ -44,14 +44,14 @@ public class MiniMaxAlphaBeta_TestCase {
 		successfulTrials = 0;
 	}
 
-	// StudentRobot is Yellow Player (goes first)
+	// AiPlayerRobot is Yellow Player (goes first)
 	// RandomRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment01() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
-			sim.addPlayer(new StudentRobot(env), Status.YELLOW);
+			sim.addPlayer(new AiPlayerRobot(env), Status.YELLOW);
 			sim.addPlayer(new RandomRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
@@ -100,14 +100,14 @@ public class MiniMaxAlphaBeta_TestCase {
 	}
 
 	// RandomRobot is Yellow Player (goes first)
-	// StudentRobot is Red Player (goes second)
+	// AiPlayerRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment02() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
 			sim.addPlayer(new RandomRobot(env), Status.YELLOW);
-			sim.addPlayer(new StudentRobot(env), Status.RED);
+			sim.addPlayer(new AiPlayerRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
 				// asynchronously for 5000 milliseconds (5 seconds) before timing out.
@@ -154,14 +154,14 @@ public class MiniMaxAlphaBeta_TestCase {
 		assertTrue(successfulTrials/(numTrials*1.0) >= threshold, msg);
 	}
 
-	// StudentRobot is Yellow Player (goes first)
+	// AiPlayerRobot is Yellow Player (goes first)
 	// HorizontalRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment03() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
-			sim.addPlayer(new StudentRobot(env), Status.YELLOW);
+			sim.addPlayer(new AiPlayerRobot(env), Status.YELLOW);
 			sim.addPlayer(new HorizontalRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
@@ -210,14 +210,14 @@ public class MiniMaxAlphaBeta_TestCase {
 	}
 
 	// HorizontalRobot is Yellow Player (goes first)
-	// StudentRobot is Red Player (goes second)
+	// AiPlayerRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment04() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
 			sim.addPlayer(new HorizontalRobot(env), Status.YELLOW);
-			sim.addPlayer(new StudentRobot(env), Status.RED);
+			sim.addPlayer(new AiPlayerRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
 				// asynchronously for 5000 milliseconds (5 seconds) before timing out.
@@ -264,14 +264,14 @@ public class MiniMaxAlphaBeta_TestCase {
 		assertTrue(successfulTrials/(numTrials*1.0) >= threshold, msg);
 	}
 
-	// StudentRobot is Yellow Player (goes first)
+	// AiPlayerRobot is Yellow Player (goes first)
 	// VerticalRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment05() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
-			sim.addPlayer(new StudentRobot(env), Status.YELLOW);
+			sim.addPlayer(new AiPlayerRobot(env), Status.YELLOW);
 			sim.addPlayer(new VerticalRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
@@ -320,14 +320,14 @@ public class MiniMaxAlphaBeta_TestCase {
 	}
 
 	// VerticalRobot is Yellow Player (goes first)
-	// StudentRobot is Red Player (goes second)
+	// AiPlayerRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment06() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
 			sim.addPlayer(new VerticalRobot(env), Status.YELLOW);
-			sim.addPlayer(new StudentRobot(env), Status.RED);
+			sim.addPlayer(new AiPlayerRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
 				// asynchronously for 5000 milliseconds (5 seconds) before timing out.
@@ -375,14 +375,14 @@ public class MiniMaxAlphaBeta_TestCase {
 	}
 
 	// EXTRA CREDIT - +5% if you pass this test case
-	// StudentRobot is Yellow Player (goes first)
+	// AiPlayerRobot is Yellow Player (goes first)
 	// GreedyRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment07() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
-			sim.addPlayer(new StudentRobot(env), Status.YELLOW);
+			sim.addPlayer(new AiPlayerRobot(env), Status.YELLOW);
 			sim.addPlayer(new GreedyRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
@@ -432,14 +432,14 @@ public class MiniMaxAlphaBeta_TestCase {
 
 	// EXTRA CREDIT - +5% if you pass this test case
 	// GreedyRobot is Yellow Player (goes first)
-	// StudentRobot is Red Player (goes second)
+	// AiPlayerRobot is Red Player (goes second)
 	@Test
 	public void testEnvironment08() {
 		for (int trial = 0; trial < numTrials; trial++) {
 			RunSimulation sim = new RunSimulation();
 			Environment env = sim.getEnvironment();
 			sim.addPlayer(new GreedyRobot(env), Status.YELLOW);
-			sim.addPlayer(new StudentRobot(env), Status.RED);
+			sim.addPlayer(new AiPlayerRobot(env), Status.RED);
 			try {
 				// CompletableFuture will run an iteration's simulation
 				// asynchronously for 5000 milliseconds (5 seconds) before timing out.

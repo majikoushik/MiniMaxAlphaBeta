@@ -4,7 +4,7 @@ import com.MiniMaxAlphaBeta.environment.Environment;
 import com.MiniMaxAlphaBeta.environment.Position;
 import com.MiniMaxAlphaBeta.environment.Status;
 
-public class StudentRobot extends Robot {
+public class AiPlayerRobot extends Robot {
 
     private Status opponent;
     private Status self;
@@ -12,7 +12,7 @@ public class StudentRobot extends Robot {
     private static final int MAX_WINNING_SCORE = 999999;
     private static final int MIN_WINNING_SCORE = -999999;
 
-    public StudentRobot(Environment env) {
+    public AiPlayerRobot(Environment env) {
         super(env);
     }
 
@@ -45,22 +45,16 @@ public class StudentRobot extends Robot {
     }
 
     private int[] alphaBetaMinimax(Position[][] board, int alpha, int beta, int depth, boolean maxTurn) {
-
         int score = calculateScore(board);
-
         if (isDone(depth, board, score)) {
             return new int[] { -1, score };
         }
-
         if (maxTurn) {
-
             int[] max = new int[] { -1, Integer.MIN_VALUE };
-
             for (int column = 0; column < env.getCols(); column++) {
                 Position[][] clonedBoard = cloneBoard(board);
                 if (place(clonedBoard, column, self)) {
                     int[] result = alphaBetaMinimax(clonedBoard, alpha, beta, depth + 1, false);
-
                     if (result[1] > max[1]) {
                         max[0] = column;
                         max[1] = result[1];
@@ -73,12 +67,10 @@ public class StudentRobot extends Robot {
             return max;
         } else {
             int[] min = new int[] { -1, Integer.MAX_VALUE };
-
             for (int column = 0; column < env.getCols(); column++) {
                 Position[][] clonedBoard = cloneBoard(board);
                 if (place(clonedBoard, column, opponent)) {
                     int[] result = alphaBetaMinimax(clonedBoard, alpha, beta, depth + 1, true);
-
                     if (result[1] < min[1]) {
                         min[0] = column;
                         min[1] = result[1];

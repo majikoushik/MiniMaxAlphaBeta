@@ -27,14 +27,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import com.MiniMaxAlphaBeta.agent.StudentRobot;
+import com.MiniMaxAlphaBeta.agent.AiPlayerRobot;
 
 /**
  * A Visual Guide toward testing whether your robot
- * agent is operating correctly. This visualization
- * will run for 100 time steps, afterwards it will
- * output the number of tiles cleaned, and a percentage
- * of the room cleaned.
+ * agent is operating correctly. 
  */
 public class VisualizeSimulation extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -81,8 +78,8 @@ public class VisualizeSimulation extends JFrame {
 				return new HorizontalRobot(env);
 			case "LazyRobot":
 				return new LazyRobot(env);
-			case "StudentRobot":
-				return new StudentRobot(env);
+			case "AiPlayerRobot":
+				return new AiPlayerRobot(env);
 			default:
 				if (this.DEBUG) {
 					String msg = String.format("%s not found, defaulting to LazyRobot", agentName);
@@ -95,7 +92,7 @@ public class VisualizeSimulation extends JFrame {
 	public static void main(String[] args) {
 		JFrame frame = new VisualizeSimulation();
 
-		frame.setTitle("CSC 411 - Problem Set 04");
+		frame.setTitle("Minimax Alpha Beta Pruning");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
@@ -105,7 +102,6 @@ public class VisualizeSimulation extends JFrame {
 	class EnvironmentPanel extends JPanel {
 		private Timer timer;
 		private Environment env;
-		private int ITERATIONS;
 		public int TILESIZE;
 		public int DELAY; // milliseconds
 		public boolean DEBUG;
@@ -116,7 +112,6 @@ public class VisualizeSimulation extends JFrame {
 		// with a 500ms delay (or wait 500ms before updating again).
 		public EnvironmentPanel(Environment env, int iterations, int tilesize, int delay, boolean debug) {
 			this.env = env;
-			ITERATIONS = iterations; // Not used, since game will play to completion
 			TILESIZE = tilesize;
 			DELAY = delay;
 			DEBUG = debug;
